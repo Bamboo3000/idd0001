@@ -6,11 +6,34 @@
 	top: 0;
 	z-index: 99999;
 
+	&.scrolled {
+
+		.logo {
+			padding: 8px 0 5px;
+
+			img {
+				width: 100px;
+			}
+
+		}
+
+		ul.sub-menu {
+			top: 53px;
+		}
+
+	}
+
 	&__container {
 		padding: 0 37px 0 40px;
 
 		.logo {
 			padding: 20px 0 13px;
+			transition: all 200ms ease;
+
+			img {
+				transition: all 200ms ease;
+			}
+
 		}
 
 	}

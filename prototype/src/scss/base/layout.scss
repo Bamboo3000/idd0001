@@ -77,7 +77,7 @@ section {
 #wrapper {
 	position: relative;
 	display: block;
-	padding-top: 107px;
+	padding: 100px 15px 0 15px;
 }
 
 #menuCloserButton {
@@ -88,72 +88,6 @@ section {
 	left: 270px;
 	z-index: 999999999999999999999;
 	display: block;
-}
-
-.container {
-	position: relative;
-	margin: 0 auto;
-	padding: 0 15px;
-	display: block;
-	max-width: 1170px;
-
-	@media(max-width: 1170px) {
-		max-width: 990px;
-	}
-
-	@media(max-width: 767px) {
-		padding: 0 10px;
-	}
-
-	&-sml {
-		max-width: 900px;
-
-		@media(max-width: 1170px) {
-			max-width: 768px;
-		}
-
-	}
-	
-	&__half-left {
-		position: relative;
-		float: left;
-		display: block;
-		padding-left: 100px;
-		padding-right: 15px;
-		max-width: 585px;
-
-		@media(max-width: 1280px) {
-			padding-left: 70px;
-			max-width: 555px;
-		}
-
-		@media(max-width: 1170px) {
-			padding-left: 50px;
-			max-width: 495px;
-		}
-
-	}
-
-	&__half-right {
-		position: relative;
-		float: right;
-		display: block;
-		padding-right: 100px;
-		padding-left: 15px;
-		max-width: 585px;
-
-		@media(max-width: 1280px) {
-			padding-right: 70px;
-			max-width: 555px;
-		}
-
-		@media(max-width: 1170px) {
-			padding-right: 50px;
-			max-width: 495px;
-		}
-
-	}
-
 }
 
 .centerV-container {

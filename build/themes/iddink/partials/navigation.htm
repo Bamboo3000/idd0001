@@ -5,37 +5,7 @@
 				<img src="{{ 'assets/img/iddink_g_logo.png'|theme }}" alt="Idding Group logo" width="150">
 			</a>
 			<nav class="navigation__menu">
-				<ul>
-					<li>
-						<a href="https://www.iddinkgroup.com/"><img src="{{ 'assets/img/house-dark.png'|theme }}" alt="" width="24"></a>
-					</li>
-					<li class="has-child">
-						<a href="">Over ons<span></span></a>
-						<ul class="sub-menu">
-							<li>
-								<a href="">Onze Visie en Missie</a>
-							</li>
-							<li>
-								<a href="">Onze Visie en Missie</a>
-							</li>
-							<li>
-								<a href="">Onze Visie en Missie</a>
-							</li>
-							<li>
-								<a href="">Onze Visie en Missie</a>
-							</li>
-							<li>
-								<a href="">Onze Visie en Missie</a>
-							</li>
-						</ul>
-					</li>
-					<li class="has-child">
-						<a href="">Ons bedrijf<span></span></a>
-					</li>
-					<li class="has-child">
-						<a href="">Werken bij<span></span></a>
-					</li>
-				</ul>
+				{% partial 'menu-items' items=mainMenu.menuItems %}
 			</nav>
 		</div>
 	</div>

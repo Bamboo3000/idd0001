@@ -1,16 +1,18 @@
 [viewBag]
 ==
-<ul class="menu">
+<ul>
+    <li>
+        <a href="https://www.iddinkgroup.com/"><img src="{{ 'assets/img/house-dark.png'|theme }}" alt="" width="24"></a>
+    </li>
     {% for item in items %}
-        <li class="{{ item.isActive or item.isChildActive ? 'active' : '' }}">
-            <a href="{{ item.url }}" title="{{ item.title|_ }}" {{ item.items ? 'class="has-children"' : null }}>{{ item.title|_ }}</a>
+        <li class="{{ item.isActive or item.isChildActive ? 'active' : null }} {{ item.items ? 'has-child' : null }}">
+            <a href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}{{ item.items ? '<span></span>' : null }}</a>
             {% if item.items %}
-                <i class="fas fa-chevron-down" onclick="showSubMenu(this)"></i>
-                <ul class="sub">
+                <ul class="sub-menu">
                     {% for item in item.items %}
                         <li class="{{ item.isActive ? 'active' : '' }}">
-                            <a href="{{ item.url }}" title="{{ item.title|_ }}">
-				                {{ item.title|_ }}
+                            <a href="{{ item.url }}" title="{{ item.title }}">
+				                {{ item.title }}
 				            </a>
                         </li>
                     {% endfor %}

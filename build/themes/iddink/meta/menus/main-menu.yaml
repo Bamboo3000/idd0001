@@ -1,273 +1,214 @@
 name: 'Main menu'
 items:
     -
-        title: Jobs
-        nesting: '0'
-        type: static-page
-        url: ''
+        title: 'Over ons'
+        type: url
+        url: 'https://www.iddinkgroup.com/over-ons/'
         code: ''
-        reference: jobs
-        cmsPage: ''
-        replace: '0'
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
-    -
-        title: Candidates
-        nesting: '0'
-        type: static-page
-        url: ''
-        code: ''
-        reference: candidates
-        cmsPage: ''
-        replace: '0'
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
         items:
             -
-                title: 'Upload CV'
+                title: 'Onze Visie en Missie'
                 type: url
-                url: '/#uploadcv'
+                url: 'https://www.iddinkgroup.com/over-ons/visie-en-missie/'
                 code: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Why Search It Recruitment?'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: Kernwaarden
+                type: url
+                url: 'https://www.iddinkgroup.com/over-ons/kernwaarden/'
                 code: ''
-                reference: candidates-why-search-it-recruitment
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Work permit in Netherlands'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: Geschiedenis
+                type: url
+                url: 'https://www.iddinkgroup.com/over-ons/geschiedenis/'
                 code: ''
-                reference: candidates-work-permit-netherlands
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: '30% Tax Ruling'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: Toelichting
+                type: url
+                url: 'https://www.iddinkgroup.com/over-ons/toelichting/'
                 code: ''
-                reference: candidates-30-tax-ruling
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Example cv'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: 'Pers & Nieuws'
+                type: url
+                url: 'https://www.iddinkgroup.com/over-ons/pers-nieuws/'
                 code: ''
-                reference: candidates-example-cv
-                cmsPage: ''
-                replace: '0'
-                viewBag:
-                    isHidden: '0'
-                    cssClass: ''
-                    isExternal: '0'
-            -
-                title: 'Example Resume Dutch'
-                nesting: '0'
-                type: static-page
-                url: ''
-                code: ''
-                reference: candidates-example-resume-dutch
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
     -
-        title: Clients
-        nesting: '0'
-        type: static-page
-        url: ''
+        title: 'Ons bedrijf'
+        type: url
+        url: 'https://www.iddinkgroup.com/ons-bedrijf/'
         code: ''
-        reference: clients
-        cmsPage: ''
-        replace: '0'
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
         items:
             -
-                title: 'Upload job'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: 'Iddink Nederland'
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/iddink-nederland/'
                 code: ''
-                reference: clients-upload-job
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Why Search It Recruitment?'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: 'Iddink België'
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/iddink-belgie/'
                 code: ''
-                reference: clients-why-search-it-recruitment
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Our Recruitment Process'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: 'Iddink Spanje'
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/iddink-spanje/'
                 code: ''
-                reference: clients-our-recruitment-process
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Executive Search And Headhunting'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: Magister
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/magister/'
                 code: ''
-                reference: clients-executive-search-headhunting
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Recruitment Process Outsourcing - RPO'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: Eduarte
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/eduarte/'
                 code: ''
-                reference: clients-recruitment-process-outsourcing-rpo
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Sourcing Process Outsourcing - SPO'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: Alluris
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/alluris/'
                 code: ''
-                reference: clients-sourcing-process-outsourcing-spo
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: Coaching
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: OnlineToetsportaal
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/online-toetsportaal/'
                 code: ''
-                reference: coaching
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Work Permit'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: WinToets
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/wintoets/'
                 code: ''
-                reference: clients-work-permit
-                cmsPage: ''
-                replace: '0'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
-                title: '30% Tax Ruling'
-                nesting: '0'
-                type: static-page
-                url: ''
+                title: Quayn
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/quayn/'
                 code: ''
-                reference: clients-30-tax-ruling
-                cmsPage: ''
-                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Bloqs
+                type: url
+                url: 'https://www.iddinkgroup.com/ons-bedrijf/bloqs/'
+                code: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
     -
-        title: References
-        nesting: '0'
-        type: static-page
-        url: ''
+        title: 'Werken bij'
+        type: url
+        url: 'https://www.iddinkgroup.com/werkenbij/'
         code: ''
-        reference: references
-        cmsPage: ''
-        replace: '0'
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
-    -
-        title: 'Our Team'
-        nesting: '0'
-        type: static-page
-        url: ''
-        code: ''
-        reference: our-team
-        cmsPage: ''
-        replace: '0'
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
-    -
-        title: Contact
-        nesting: '0'
-        type: static-page
-        url: ''
-        code: ''
-        reference: contact
-        cmsPage: ''
-        replace: '0'
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
+        items:
+            -
+                title: Professionals
+                type: url
+                url: 'https://www.iddinkgroup.com/werkenbij/professionals/'
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Starter & Student'
+                type: url
+                url: 'https://www.iddinkgroup.com/werkenbij/starter-student/'
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Vakantiewerk
+                type: url
+                url: 'https://www.iddinkgroup.com/werkenbij/vakantiewerk/'
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Vacatures
+                nesting: '0'
+                type: static-page
+                code: ''
+                reference: index
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Open sollicitatie'
+                type: url
+                url: 'https://www.iddinkgroup.com/werkenbij/open-sollicitatie/'
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'

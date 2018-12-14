@@ -74,6 +74,21 @@ function stopBodyScrolling (bool) {
     }
 }
 
+function menuScroll()
+{
+	var $nav = $('header.navigation');
+	var $scroll = $(window).scrollTop();
+	if($scroll >= 100) {
+		if(!$nav.hasClass('scrolled')) {
+			$nav.addClass('scrolled');
+		}
+	} else {
+		if($nav.hasClass('scrolled')) {
+			$nav.removeClass('scrolled');
+		}
+	}
+}
+
 function getFileName($input, $el)
 {
 	$text = $input.value;
@@ -144,6 +159,10 @@ function clearForm(oForm)
 
 $(document).ready(function() {
 
+});
+
+$(window).on('load scroll', function() {
+	menuScroll();
 });
 
 $(window).on('load', function() {
