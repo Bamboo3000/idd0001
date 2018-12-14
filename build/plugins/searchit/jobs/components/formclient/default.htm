@@ -1,0 +1,29 @@
+{{ form_open({ enctype: 'multipart/form-data', method: 'POST', files: 'true',  class: 'client-form', request: 'onFormClientSubmit',  }) }}
+    {% flash success %}
+        <p
+            data-control="flash-message"
+            class="flash-message fade info"
+            data-interval="10">
+            {{ 'Job submitted!'|_ }}
+        </p>
+    {% endflash %}
+    {{ form_token() }}
+    {{ form_sessionKey() }}
+    <label for="name">{{ 'Name'|_ }} <span>*</span></label>
+    <input type="text" name="name" required="required" placeholder="{{ 'John Doe'|_ }}">
+    <label for="company">{{ 'Company name'|_ }}</label>
+    <input type="text" name="company" placeholder="{{ 'Example company ltd.'|_ }}">
+    <label for="email">{{ 'Email'|_ }} <span>*</span></label>
+    <input type="email" name="email" required="required" placeholder="{{ 'johndoe@example.com'|_ }}">
+    <label for="phone">{{ 'Phone'|_ }}</label>
+    <input type="tel" name="phone" placeholder="+31 123 456 789">
+    <label for="job_file">{{ 'Job specification file'|_ }} <span>*</span></label>
+    <div class="cvupload">
+        <p id="job_file"><i>{{ 'Accepted formats: .doc | .docx | .pdf'|_ }}</i></p>
+        <input type="file" accept="application/pdf,application/msword,
+        application/vnd.openxmlformats-officedocument.wordprocessingml.document" name="job_file" required="required" onchange="getFileName(this, 'job_file')">
+    </div>
+    <label for="extra">{{ 'Extra details'|_ }}</label>
+    <textarea class="message" name="extra" placeholder="{{ 'Webtwo ipsum mobly doostang cotweet handango, mozy. Jajah shopify meebo spotify balihoo dopplr klout, vimeo dopplr tumblr chumby yoono. Mozy napster tivo kazaa, kaboodle heekya. Etsy zillow movity jajah imvu, zanga dogster. Rovio bitly insala blyve, wikia.'|_ }}"></textarea>
+    <input type="submit" value="{{ 'Send'|_ }}" class="submit" data-attach-loading>
+{{ form_close() }}

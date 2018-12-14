@@ -1,0 +1,11 @@
+columns:
+    category_name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    category_slug:
+        label: Slug
+        type: text
+        searchable: true
+        sortable: true

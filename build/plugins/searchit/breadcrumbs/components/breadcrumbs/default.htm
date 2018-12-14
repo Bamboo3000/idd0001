@@ -1,0 +1,30 @@
+<div class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li>
+                <a href="{{ baseUrl }}">{{ 'Home'|_ }}</a>
+            </li>
+            <li>
+                &rarr;
+            </li>
+            {% for segment in segments %}
+                <li>
+                    {% if loop.index < segments|length %}
+                        <a href="{{ segment.path }}">{{ segment.name }}</a>
+                    {% else %}
+                        {% if this.page.id == 'job-categories' %}
+                            <h1>{{ segment.name }}</h1>
+                        {% else %}
+                            {{ segment.name }}
+                        {% endif %}
+                    {% endif %}
+                </li>
+                {% if loop.index < segments|length %}
+                    <li>
+                        &rarr;
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>

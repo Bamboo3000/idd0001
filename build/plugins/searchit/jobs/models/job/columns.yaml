@@ -1,0 +1,15 @@
+columns:
+    job_id:
+        label: 'Job ID'
+        type: text
+        searchable: true
+        sortable: true
+    title:
+        label: Title
+        type: text
+        searchable: true
+        sortable: true
+    date:
+        label: Date
+        type: text
+        sortable: true

@@ -1,0 +1,20 @@
+plugin:
+    name: 'searchit.jobs::lang.plugin.name'
+    description: 'searchit.jobs::lang.plugin.description'
+    author: searchit
+    icon: oc-icon-briefcase
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Jobs
+        url: searchit/jobs/jobs
+        icon: icon-briefcase
+        sideMenu:
+            side-menu-item:
+                label: Categories
+                url: searchit/jobs/categories
+                icon: icon-sitemap
+            side-menu-item2:
+                label: Types
+                url: searchit/jobs/types
+                icon: icon-cogs

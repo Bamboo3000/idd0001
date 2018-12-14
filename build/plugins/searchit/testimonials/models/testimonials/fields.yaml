@@ -1,0 +1,26 @@
+fields:
+    type:
+        label: Type
+        oc.commentPosition: above
+        options:
+            candidate: candidate
+            client: client
+        span: auto
+        required: 1
+        type: radio
+    who:
+        label: Who
+        span: auto
+        required: 1
+        type: text
+    featured:
+        label: 'Featured on home page?'
+        span: auto
+        required: 1
+        type: switch
+    summary:
+        label: Summary
+        span: full
+        size: giant
+        required: 1
+        type: textarea

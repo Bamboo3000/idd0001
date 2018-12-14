@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table searchit_testimonials_testimonials'
+    - builder_table_create_searchit_testimonials_testimonials.php

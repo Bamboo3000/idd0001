@@ -1,0 +1,10 @@
+name: Types
+form: $/searchit/jobs/models/type/fields.yaml
+modelClass: Searchit\Jobs\Models\Type
+defaultRedirect: searchit/jobs/types
+create:
+    redirect: 'searchit/jobs/types/update/:id'
+    redirectClose: searchit/jobs/types
+update:
+    redirect: searchit/jobs/types
+    redirectClose: searchit/jobs/types

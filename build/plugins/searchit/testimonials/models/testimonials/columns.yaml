@@ -1,0 +1,20 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        sortable: true
+    who:
+        label: who
+        type: text
+        searchable: true
+        sortable: true
+    type:
+        label: type
+        type: text
+        searchable: false
+        sortable: true
+    featured:
+        label: featured
+        type: text
+        sortable: true

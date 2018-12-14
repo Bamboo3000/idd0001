@@ -1,0 +1,14 @@
+fields:
+    type_name:
+        label: Name
+        span: auto
+        required: 1
+        type: text
+    type_slug:
+        label: Slug
+        span: auto
+        required: 1
+        preset:
+            field: type_name
+            type: slug
+        type: text

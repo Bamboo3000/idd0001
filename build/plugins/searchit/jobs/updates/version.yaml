@@ -1,0 +1,41 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table searchit_jobs_jobs'
+    - builder_table_create_searchit_jobs_jobs.php
+1.0.3:
+    - 'Created table searchit_jobs_categories'
+    - builder_table_create_searchit_jobs_categories.php
+1.0.4:
+    - 'Updated table searchit_jobs_jobs'
+    - builder_table_update_searchit_jobs_job.php
+1.0.5:
+    - 'Created table searchit_jobs_job_categories'
+    - builder_table_create_searchit_jobs_job_categories.php
+1.0.6:
+    - 'Created table searchit_jobs_job_types'
+    - builder_table_create_searchit_jobs_job_types.php
+1.0.7:
+    - 'Created table searchit_jobs_types'
+    - builder_table_create_searchit_jobs_types.php
+1.0.8:
+    - 'Updated table searchit_jobs_types'
+    - builder_table_update_searchit_jobs_types.php
+1.0.9:
+    - 'Updated table searchit_jobs_types'
+    - builder_table_update_searchit_jobs_types_2.php
+1.0.10:
+    - 'Updated table searchit_jobs_categories'
+    - builder_table_update_searchit_jobs_categories.php
+1.0.11:
+    - 'Updated table searchit_jobs_categories'
+    - builder_table_update_searchit_jobs_categories_2.php
+1.0.12:
+    - 'Updated table searchit_jobs_categories'
+    - builder_table_update_searchit_jobs_categories_3.php
+1.0.13:
+    - 'Updated table searchit_jobs_job'
+    - builder_table_update_searchit_jobs_job_2.php
+1.0.14:
+    - 'Updated table searchit_jobs_job'
+    - builder_table_update_searchit_jobs_job_3.php

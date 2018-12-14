@@ -1,0 +1,10 @@
+name: Categories
+form: $/searchit/jobs/models/category/fields.yaml
+modelClass: Searchit\Jobs\Models\Category
+defaultRedirect: searchit/jobs/categories
+create:
+    redirect: 'searchit/jobs/categories/update/:id'
+    redirectClose: searchit/jobs/categories
+update:
+    redirect: searchit/jobs/categories
+    redirectClose: searchit/jobs/categories

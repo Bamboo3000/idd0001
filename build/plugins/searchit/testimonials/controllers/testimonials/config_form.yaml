@@ -1,0 +1,10 @@
+name: Testimonials
+form: $/searchit/testimonials/models/testimonials/fields.yaml
+modelClass: Searchit\Testimonials\Models\Testimonials
+defaultRedirect: searchit/testimonials/testimonials
+create:
+    redirect: 'searchit/testimonials/testimonials/update/:id'
+    redirectClose: searchit/testimonials/testimonials
+update:
+    redirect: searchit/testimonials/testimonials
+    redirectClose: searchit/testimonials/testimonials

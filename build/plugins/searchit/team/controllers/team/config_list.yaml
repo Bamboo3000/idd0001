@@ -1,0 +1,12 @@
+title: Team
+modelClass: Searchit\Team\Models\Team
+list: $/searchit/team/models/team/columns.yaml
+recordUrl: 'searchit/team/team/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+showSorting: 1
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

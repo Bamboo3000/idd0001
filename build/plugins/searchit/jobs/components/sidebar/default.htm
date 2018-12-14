@@ -1,0 +1,29 @@
+{% set cats = catsListing.records %}
+{% set catsDisplayColumn = catsListing.displayColumn %}
+{% set types = typesListing.records %}
+{% set typesDisplayColumn = typesListing.displayColumn %}
+
+<div class="job-filters-search2" id="job-header">
+    <h5>{{ 'Job categories'|_ }}</h5>
+    <hr class="green">
+    <ul class="job-categories">
+		{% for cat in cats %}
+			<li>
+		        <a href="{{ cat.category_name }}">{{ cat.category_name }} {# <small>({{ cat|length }})</small> #}</a>
+		    </li>
+		{% endfor %}
+	</ul>
+	<input type="hidden" id="job-category" name="job-category">
+</div>
+<div class="job-filters-search3">
+    <h5>{{ 'Job type'|_ }}</h5>
+    <hr class="green">
+    <ul class="job-types">
+        {% for type in types %}
+			<li>
+		        <a href="{{ type.type_name }}">{{ type.type_name }} {# <small>({{ cat|length }})</small> #}</a>
+		    </li>
+		{% endfor %}
+    </ul>
+    <input type="hidden" id="job-type" name="job-type">
+</div>

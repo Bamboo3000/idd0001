@@ -1,0 +1,11 @@
+plugin:
+    name: 'searchit.testimonials::lang.plugin.name'
+    description: 'searchit.testimonials::lang.plugin.description'
+    author: searchit
+    icon: oc-icon-comments-o
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Testimonials
+        url: searchit/testimonials/testimonials
+        icon: icon-comments-o

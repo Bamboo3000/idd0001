@@ -1,0 +1,6 @@
+plugin:
+    name: 'searchit.breadcrumbs::lang.plugin.name'
+    description: 'searchit.breadcrumbs::lang.plugin.description'
+    author: searchit
+    icon: oc-icon-puzzle-piece
+    homepage: ''

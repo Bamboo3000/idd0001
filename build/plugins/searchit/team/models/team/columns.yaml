@@ -1,0 +1,15 @@
+columns:
+    id:
+        label: ID
+        type: number
+        sortable: true
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    position:
+        label: Position
+        type: text
+        searchable: true
+        sortable: true

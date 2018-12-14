@@ -1,0 +1,11 @@
+plugin:
+    name: 'searchit.team::lang.plugin.name'
+    description: 'searchit.team::lang.plugin.description'
+    author: searchit
+    icon: oc-icon-users
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Team
+        url: searchit/team/team
+        icon: icon-users

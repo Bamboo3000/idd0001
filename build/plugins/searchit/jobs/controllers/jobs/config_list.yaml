@@ -1,0 +1,11 @@
+title: Jobs
+modelClass: Searchit\Jobs\Models\Job
+list: $/searchit/jobs/models/job/columns.yaml
+recordUrl: 'searchit/jobs/jobs/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

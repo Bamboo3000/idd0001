@@ -1,0 +1,39 @@
+fields:
+    title:
+        label: Title
+        span: left
+        required: 1
+        type: text
+    slug:
+        label: Slug
+        span: right
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    summary:
+        label: Summary
+        size: giant
+        span: full
+        required: 1
+        stretch: 1
+        type: richeditor
+tabs:
+    fields:
+        meta_title:
+            label: 'Meta title'
+            span: left
+            type: text
+            tab: SEO
+        meta_keywords:
+            label: 'Meta keywords'
+            span: right
+            type: text
+            tab: SEO
+        meta_description:
+            label: 'Meta description'
+            span: full
+            size: small
+            type: textarea
+            tab: SEO

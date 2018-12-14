@@ -1,0 +1,10 @@
+name: Team
+modelClass: Searchit\Team\Models\Team
+form: $/searchit/team/models/team/fields.yaml
+defaultRedirect: searchit/team/team
+create:
+    redirect: 'searchit/team/team/update/:id'
+    redirectClose: searchit/team/team
+update:
+    redirect: searchit/team/team
+    redirectClose: searchit/team/team

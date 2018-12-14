@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    {% for job in jobs %}
+        <url>
+            <loc>
+                {{ url('/en/job') ~ '/' ~ job.slug }}
+            </loc>
+            <xhtml:link rel="alternate" hreflang="nl" href="{{ url('/nl/vacature') ~ '/' ~ job.slug }}"/>
+            <xhtml:link rel="alternate" hreflang="en" href="{{ url('/en/job') ~ '/' ~ job.slug }}"/> 
+            <lastmod>{{ job.date|date('c') }}</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>1.0</priority>
+        </url>
+    {% endfor %}
+    {% for category in categories %}
+        <url>
+            <loc>
+                {{ url('/en/jobs') ~ '/' ~ category.category_slug }}
+            </loc>
+            <xhtml:link rel="alternate" hreflang="nl" href="{{ url('/nl/vacatures') ~ '/' ~ category.category_slug }}"/>
+            <xhtml:link rel="alternate" hreflang="en" href="{{ url('/en/jobs') ~ '/' ~ category.category_slug }}"/> 
+            <changefreq>yearly</changefreq>
+            <priority>0.7</priority>
+        </url>
+    {% endfor %}
+    {% for page in pages %}
+        <url>
+            <loc>
+                {{ url('/en/') ~ page.en }}
+            </loc>
+            {% if page.nl %}
+                <xhtml:link rel="alternate" hreflang="en" href="{{ url('/en/') ~ page.en }}"/> 
+                <xhtml:link rel="alternate" hreflang="nl" href="{{ url('/nl/') ~ page.nl }}"/> 
+            {% endif %}
+            <changefreq>yearly</changefreq>
+            <priority>0.5</priority>
+        </url>
+    {% endfor %}
+</urlset>
