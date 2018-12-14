@@ -31,10 +31,10 @@
         {% endif %}
     </nav>
 {% endif %}
-{% if hrefQuery %}
+{# {% if hrefQuery %}
     <script>
         var $pathname = window.location.pathname;
         var $path = $pathname + '?' + '{{ hrefQuery|raw }}';
-        window.history.pushState(null, null, $path);
+        window.history.replaceState(null, null, $path);
     </script>
-{% endif %}
+{% endif %} #}

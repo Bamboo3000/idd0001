@@ -1,3 +1,120 @@
 .job-detail {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &__description {
+
+        .btn {
+            margin-top: 20px;
+            padding: 16px 48px;
+            font-size: 16px;
+        }
+
+    }
     
+    &__title {
+        color: $color-tertiary;
+        margin-bottom: 24px;
+    }
+
+    &__sidebar {
+        background-color: white;
+        padding: 20px;
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 17px;
+            font-size: 18px;
+            border-width: 3px;
+        }
+
+        .title {
+            font-size: 21px;
+            font-weight: 400;
+            display: block;
+            line-height: 1;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .info {
+
+            i {
+                color: $color-tertiary;
+                margin-right: 6px;
+            }
+
+        }
+
+        hr {
+            width: 100%;
+            height: 2px;
+            border: none;
+            outline: 0;
+            background-color: $color-tertiary;
+            opacity: 0.6;
+            display: block;
+            margin: 0 0 20px 0;
+        }
+    
+    }
+
+    &__social {
+
+        a {
+            padding: 4px 8px;
+            display: inline-block;
+            position: relative;
+
+            &:hover {
+                text-decoration: none;
+    
+                i {
+                    transform: scale(1.2);
+                }
+    
+            }
+
+        }
+
+        i {
+            font-size: 24px;
+            text-align: center;
+            margin: 0;
+            color: white;
+            transition: all 100ms ease;
+            
+            &.fa-facebook-f {
+                color: #3b5998;
+            }
+
+            &.fa-twitter {
+                color: #55acee;
+            }
+
+            &.fa-linkedin-in {
+                color: #007bb5;
+            }
+
+            &.fa-google-plus-g {
+                color: #dd4b39;
+            }
+
+            &.fa-get-pocket {
+                color: #f73b57;
+            }
+
+            &.fa-whatsapp {
+                color: #43d854;
+            }
+
+            &.fa-envelope {
+                color: $color-tertiary;
+            }
+
+        }
+
+    }
+
 }
