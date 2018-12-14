@@ -1,0 +1,72 @@
+description = "Home page"
+
+[staticMenu mainMenu]
+code = "main-menu"
+
+[staticPage]
+[jobsList]
+==
+
+{% partial 'head' %}
+
+{{ form_open({ request: 'onFilterSearch', class: 'container' }) }}
+
+    {% partial 'job-search' %}
+
+    <div class="row align-items-start">
+
+        <aside class="col-4 job-listing__filters">
+            {% partial 'job-filters' %}
+        </aside>
+        <main class="col-8">
+            <section class="job-listing__container">
+                {% partial 'job-listing' %}
+            </section>
+        </main>
+
+    </div>
+            <div class="job-listing__pagination">
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=4" class="prev">
+            <i class="fas fa-chevron-left"></i>
+            <span>Vorige</span>
+            </a>
+            <ul>
+            <li>
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=1">1</a>
+            </li>
+            <li>
+            ...
+            </li>
+            <li>
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=3">3</a>
+            </li>
+            <li>
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=4">4</a>
+            </li>
+            <li class="active">
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=5">5</a>
+            </li>
+            <li>
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=6">6</a>
+            </li>
+            <li>
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=7">7</a>
+            </li>
+            <li>
+            ...
+            </li>
+            <li>
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=12">12</a>
+            </li>
+            </ul>
+            <a href="https://www.searchitrecruitment.com/nl/vacatures?page=6" class="next">
+            <span>Volgende</span>
+            <i class="fas fa-chevron-right"></i>
+            </a>
+            </div>
+    {# {% partial 'job-pagination' %} #}
+
+{{ form_close() }}
+
+
+{% partial 'footer' %}

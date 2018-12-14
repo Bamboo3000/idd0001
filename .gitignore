@@ -1,0 +1,16 @@
+/prototype/node_modules
+/build/node_modules
+/prototype/.sass-cache
+!/.gitignore
+/design
+/build/composer.lock
+/build/*
+!/build/themes
+!/build/plugins/searchit
+!/build/plugins/searchit/*
+/build/themes/searchit/content
+/build/themes/searchit/content/*
+/build/themes/searchit/meta
+/build/themes/searchit/meta/*
+/.DS_Store
+**/.DS_Store

@@ -1,0 +1,166 @@
+title = "Jobs single"
+url = "/vacature/:slug"
+layout = "tpl-job-detail"
+is_hidden = 0
+
+[staticMenu]
+code = "main-menu"
+
+[builderDetails]
+modelClass = "Searchit\Jobs\Models\Job"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+
+[jobFulfilled]
+jobfulfilled = "{{ :slug }}"
+
+[viewBag]
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+<section class="job-detail">
+    <div class="container">
+        <article class="job-detail__container">
+            <div class="job-detail__description">
+                <h1 class="title">
+                    {{ record.title|raw }}
+                </h1>
+                <aside class="job-detail__sidebar mobile">
+                    <div class="sidebar-tile-container">
+                        <div class="sidebar-tile">
+                            <span class="title">
+                                {{ 'Job details' }}
+                            </span>
+                            <div class="info">
+                                {% if record.location %}
+                                    <div class="info-single">
+                                        <p><i class="fas fa-map-marked-alt"></i>{{ record.location }}</p>
+                                    </div>
+                                {% endif %}
+                                {% if record.salary_min or record.salary_max %}
+                                    <div class="info-single">
+                                        <p><i class="fas fa-euro-sign"></i>{{ record.salary_min|number_format(0, '.', '.') }} - {{ record.salary_max|number_format(0, '.', '.') }}</p>
+                                    </div>
+                                {% endif %}
+                                {% if record.types[0].type_name %}
+                                    <div class="info-single">
+                                        <p><i class="far fa-clock"></i>{{ record.types[0].type_name }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="sidebar-tile">
+                            <span class="title social">
+                                {{ 'Share this job' }}
+                            </span>
+                            <div class="job-detail__social">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ this.page.id | page }}&t={{ record.title }}" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com/intent/tweet?source={{ this.page.id | page }}&text={{ this.page.id | page }} - {{ record.title }}" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ this.page.id | page }}&title={{ record.title }}&summary=Checkout%20this%20job%20offer!&source={{ this.page.id | page }}" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://plus.google.com/share?url={{ this.page.id | page }}" target="_blank">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                                <a href="https://getpocket.com/save?url={{ this.page.id | page }}&title={{ record.title }}" target="_blank">
+                                    <i class="fab fa-get-pocket"></i>
+                                </a>
+                                <a href="whatsapp://send?text={{ record.title }}&nbsp;&nbsp;{{ this.page.id | page }}" target="_blank">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="mailto:?subject={{ record.title }}&body=Checkout%20this%20job%20offer: {{ this.page.id | page }}" target="_blank">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sidebar-tile">
+                            <span class="title">
+                                {{ 'Job location' }}
+                            </span>
+                            <div id="job_map_mobile"></div>
+                        </div>
+                    </div>
+                </aside>
+                <div class="description-container">
+                    {% autoescape 'html' %}
+                        {{ record.summary|replace({"&amp;#39;": "’"})|raw }}
+                    {% endautoescape %}
+                </div>
+                {% if not fulfilled %}
+                    <a href="javascript:void(0)" onclick="showForm()" class="btn btn-default btn-full">
+                        <span>{{ 'Apply for a job' }}</span>
+                    </a>
+                {% endif %}
+            </div>
+            <aside class="job-detail__sidebar desktop">
+                {% if not fulfilled %}
+                    <a href="javascript:void(0)" onclick="showForm()" class="btn btn-default btn-top">
+                        <span>{{ 'Apply for a job' }}</span>
+                    </a>
+                {% else %}
+                    <a href="javascript:void(0)" class="btn btn-default btn-top">
+                        <span>{{ 'Fulfilled' }}</span>
+                    </a>
+                {% endif %}
+                <span class="title">
+                    {{ 'Job details' }}
+                </span>
+                <div class="info">
+                    {% if record.location %}
+                        <div class="info-single">
+                            <p><i class="fas fa-map-marked-alt"></i>{{ record.location }}</p>
+                        </div>
+                    {% endif %}
+                    {% if record.salary_min or record.salary_max %}
+                        <div class="info-single">
+                            <p><i class="fas fa-euro-sign"></i>{{ record.salary_min|number_format(0, '.', '.') }} - {{ record.salary_max|number_format(0, '.', '.') }}</p>
+                        </div>
+                    {% endif %}
+                    {% if record.types[0].type_name %}
+                        <div class="info-single">
+                            <p><i class="far fa-clock"></i>{{ record.types[0].type_name }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+                <span class="title social">
+                    {{ 'Share this job' }}
+                </span>
+                <div class="job-detail__social">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ this.page.id | page }}&t={{ record.title }}" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?source={{ this.page.id | page }}&text={{ this.page.id | page }} - {{ record.title }}" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ this.page.id | page }}&title={{ record.title }}&summary=Checkout%20this%20job%20offer!&source={{ this.page.id | page }}" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://plus.google.com/share?url={{ this.page.id | page }}" target="_blank">
+                        <i class="fab fa-google-plus-g"></i>
+                    </a>
+                    <a href="https://getpocket.com/save?url={{ this.page.id | page }}&title={{ record.title }}" target="_blank">
+                        <i class="fab fa-get-pocket"></i>
+                    </a>
+                    <a href="whatsapp://send?text={{ record.title }}&nbsp;&nbsp;{{ this.page.id | page }}" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:?subject={{ record.title }}&body=Checkout%20this%20job%20offer: {{ this.page.id | page }}" target="_blank">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+                <span class="title">
+                    {{ 'Job location' }}
+                </span>
+                <div id="job_map"></div>
+            </aside>
+        </article>
+    </div>
+</section>

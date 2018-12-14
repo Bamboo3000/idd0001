@@ -1,0 +1,343 @@
+.references {
+
+    &__header {
+        max-height: 600px;
+        min-height: 50vh;
+        position: relative;
+
+        .bg-cover-abs {
+            max-height: 600px;
+            min-height: 50vh;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+        }
+
+        .container {
+            max-height: 600px;
+            min-height: 50vh;
+            display: flex;
+        }
+
+        .centrelize {
+            align-self: center;
+            margin: 50px auto;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        h4 {
+            margin: 15px 0 0 0;
+            line-height: 1.1;
+            font-size: 21px;
+        }
+
+    }
+
+    &__section {
+        display: flex;
+        flex-wrap: nowrap;
+
+        @media(max-width: 768px) {
+            flex-wrap: wrap;
+        }
+
+        &-img-left,
+        &-img-right,
+        &-text-left,
+        &-text-right {
+            flex-basis: 50%;
+            height: 640px;
+
+            @media(max-width: 1080px) {
+                
+                .container__half-left,
+                .container__half-right {
+                    max-width: 450px;
+                }
+
+            }
+
+            @media(max-width: 960px) {
+                height: 720px;
+                flex-basis: 65%;
+
+                .container__half-left,
+                .container__half-right {
+                    padding: 0 50px;
+                    max-width: 550px;
+                    margin: 0 auto;
+                    text-align: center;
+                    float: none;
+                }
+
+            }
+
+            @media(max-width: 768px) {
+                flex-basis: 100%;
+                height: auto;
+                padding: 70px 0;
+
+                .container__half-left,
+                .container__half-right {
+                    padding: 0 30px;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    text-align: center;
+                    float: none;
+                }
+
+            }
+
+            @media(max-width: 545px) {
+                padding: 40px 0;
+
+                .container__half-left,
+                .container__half-right {
+                    padding: 0 30px;
+                    max-width: 380px;
+                }
+
+            }
+
+            @media(max-width: 420px) {
+                padding: 30px 0;
+
+                .container__half-left,
+                .container__half-right {
+                    padding: 0 30px;
+                    max-width: 300px;
+                }
+
+            }
+
+            h2,
+            h3 {
+                margin-top: 0;
+
+                @media(max-width: 1170px) {
+                    margin-bottom: 10px;
+                }
+                
+                @media(max-width: 420px) {
+                    margin-bottom: 0;
+                }
+
+            }
+
+            a {
+                text-decoration: underline;
+            }
+
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+
+        }
+
+        &-img-left,
+        &-img-right {
+            overflow: hidden;
+
+            @media(max-width: 960px) {
+                flex-basis: 35%;
+            }
+
+            @media(max-width: 768px) {
+                flex-basis: 100%;
+                height: 420px;
+                padding: 0;
+            }
+        
+        }
+
+        &-text-left {
+
+            @media(max-width: 768px) {
+                order: 2;
+            }
+            
+        }
+
+        &-text-right  {
+            
+            @media(max-width: 768px) {
+                order: 1;
+            }
+
+        }
+
+    }
+
+    &__summary {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    &__person {
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+    #siema-prev-clients,
+    #siema-next-clients,
+    #siema-prev-candidates,
+    #siema-next-candidates {
+        position: absolute;
+        bottom: 50%;
+        display: block;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        user-select: none;
+        transition: all 300ms ease;
+
+        i {
+            font-size: 36px;
+            cursor: pointer;
+            transition: all 300ms ease;
+        }
+
+        &:hover {
+
+            i {
+                transform: scale(1.15);
+            }
+
+        }
+
+    }
+
+    #siema-prev-clients {
+        left: -45px;
+    }
+
+    #siema-next-clients {
+        right: 45px;
+    }
+
+    #siema-prev-candidates {
+        left: 45px;
+    }
+
+    #siema-next-candidates {
+        right: -45px;
+    }
+
+    @media(max-width: 1280px) {
+
+        #siema-prev-clients {
+            left: -35px;
+        }
+    
+        #siema-next-clients {
+            right: 20px;
+        }
+    
+        #siema-prev-candidates {
+            left: 20px;
+        }
+    
+        #siema-next-candidates {
+            right: -35px;
+        }
+
+    }
+
+    @media(max-width: 1170px) {
+        
+        #siema-prev-clients {
+            left: -35px;
+        }
+    
+        #siema-next-clients {
+            right: 5px;
+        }
+    
+        #siema-prev-candidates {
+            left: 5px;
+        }
+    
+        #siema-next-candidates {
+            right: -35px;
+        }
+
+    }
+
+    @media(max-width: 960px) {
+        
+        #siema-prev-clients,
+        #siema-prev-candidates {
+            left: 0;
+        }
+
+        #siema-next-clients,
+        #siema-next-candidates {
+            right: 0;
+        }
+
+    }
+
+    @media(max-width: 768px) {
+        
+        #siema-prev-clients,
+        #siema-prev-candidates {
+            left: -20px;
+        }
+
+        #siema-next-clients,
+        #siema-next-candidates {
+            right: -20px;
+        }
+
+    }
+
+    @media(max-width: 545px) {
+        
+        #siema-prev-clients,
+        #siema-prev-candidates {
+            left: -10px;
+        }
+
+        #siema-next-clients,
+        #siema-next-candidates {
+            right: -10px;
+        }
+
+    }
+
+    #siema-prev-clients,
+    #siema-prev-candidates {
+
+        &:hover {
+            transform: translateX(-10px);
+        }
+
+    }
+
+    #siema-next-clients,
+    #siema-next-candidates {
+
+        &:hover {
+            transform: translateX(10px);
+        }
+
+    }
+
+}

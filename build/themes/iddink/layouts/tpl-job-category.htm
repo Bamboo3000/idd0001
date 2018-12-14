@@ -1,0 +1,68 @@
+description = "Job category page"
+
+[staticMenu mainMenu]
+code = "main-menu"
+
+[staticPage]
+[sidebar]
+[jobsCategory]
+
+[localePicker]
+forceUrl = 1
+
+[form]
+
+categorySlug = "{{ :category }}"
+
+[breadcrumbs]
+[langCheck]
+==
+<?php
+
+public function onStart()
+{
+    if(App::getLocale() == 'en') {
+        $this['jobUrl'] = "/en/job/";
+        $this['jobCat'] = "/en/jobs/";
+    } else {
+        $this['jobUrl'] = "/nl/vacature/";
+        $this['jobCat'] = "/nl/vacatures/";
+    }
+}
+
+?>
+==
+
+{% partial 'head' %}
+{% component 'breadcrumbs' %}
+
+<section class="job-listing">
+    <div class="container">
+        <form
+            id="job-filter-search"
+            enctype="multipart/form-data"
+            onsubmit="jobsLoadingIndicator()"
+            data-request="onFilterSearch"
+            data-request-update="'job-listing': '.job-listing__list-container', 'job-pagination': '.job-listing__pagination-container', 'job-searchquery': '.job-listing__job-number'"
+            data-request-complete="jobsLoadingIndicator()"
+        >
+            <div class="job-listing__container">
+                {% partial 'job-filters' %}
+                <div class="job-listing__list">
+                    {% partial 'job-searchbar' %}
+                    <div class="job-listing__job-number">
+                        {% partial 'job-searchquery' %}
+                    </div>
+                    <div class="job-listing__list-container">
+                        {% page %}
+                    </div>
+                    <div class="job-listing__pagination-container">
+                        {% partial 'job-pagination' %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% partial 'footer' %}

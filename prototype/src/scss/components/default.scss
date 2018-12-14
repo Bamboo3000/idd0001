@@ -1,0 +1,224 @@
+.default-article {
+
+    &__header {
+        max-height: 600px;
+        min-height: 50vh;
+        position: relative;
+
+        .bg-cover-abs {
+            max-height: 600px;
+            min-height: 50vh;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+
+        }
+
+        .container {
+            max-height: 600px;
+            min-height: 50vh;
+            display: flex;
+        }
+
+        h1 {
+            align-self: center;
+            margin: 50px auto;
+            color: white;
+            text-align: center;
+        }
+
+    }
+
+    &__content {
+        margin: 70px 0;
+
+        h1 {
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            display: block;
+            border-bottom: 1px solid rgba($color-primary, 0.1);
+        }
+
+        ul {
+            list-style: circle;
+            margin: 0;
+            padding: 0 0 0 18px;
+        }
+
+        a {
+            color: $color-tertiary;
+            font-weight: 500;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+        }
+
+        form {
+            padding-top: 15px;
+            margin: auto;
+            max-width: 600px;
+            position: relative;
+            width: 100%;
+
+            label {
+                display: block;
+                color: $color-primary;
+                font-size: 15px;
+                margin-bottom: 5px;
+                line-height: 1;
+                height: 18px;
+
+                span {
+                    color: red;
+                    font-weight: 700;
+                }
+
+            }
+
+            input,
+            select,
+            textarea,
+            button {
+                appearance: none;
+                border: none;
+                border-radius: 0;
+                margin: 0 0 20px 0;
+                padding: 10px 10px 8px 10px;
+                width: calc(100% - 20px);
+                outline: 0;
+                display: block;
+                position: relative;
+                background-color: white;
+                font-family: 'Roboto', sans-serif;
+	            font-weight: 400;
+                font-size: 15px;
+                color: $color-primary;
+                resize: none;
+                transition: all 200ms ease;
+
+                &[type="file"] {
+                    opacity: 0;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 9;
+                    cursor: pointer;
+                }
+
+                &[type="submit"] {
+                    width: auto;
+                    margin: 10px auto 0;
+                    display: inline-block;
+                    padding: 16px 40px!important;
+                    height: auto!important;
+                    border: none!important;
+                    font-size: 12px;
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+                    line-height: 1;
+                    text-transform: uppercase;
+                    color: white;
+                    cursor: pointer;
+                    background-color: $color-tertiary;
+
+                    &:hover {
+                        transform: scale(1.05);
+                        -webkit-box-shadow: 0 0 8px 0 rgba($color-primary, 0.6);
+                        box-shadow: 0 0 8px 0 rgba($color-primary, 0.6);
+                    }
+
+                }
+
+                &:focus,
+                &:active {
+                    outline: none;
+                    border-color: $color-tertiary;
+                }
+
+            }
+
+            input,
+            select,
+            textarea {
+                border-bottom: 2px solid transparent;
+                line-height: 1.3;
+            }
+
+            input {
+                height: 36px;
+                padding: 0 10px;
+            }
+
+            textarea {
+
+                &.message {
+                    height: 160px;
+                }
+
+            }
+
+            select {
+                height: 38px;
+                width: 100%;
+                cursor: pointer;
+
+                &+i {
+                    position: absolute;
+                    right: 16px;
+                    top: 30px;
+                    pointer-events: none;
+                    transition: all 200ms ease;
+                }
+
+                &:hover {
+
+                    &+i {
+                        top: 33px;
+                        color: $color-tertiary;
+                    }
+
+                }
+
+            }
+
+            .cvupload {
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 38px;
+                margin-bottom: 20px;
+                background-color: white;
+
+                p {
+                    margin: 0;
+                    padding: 0 10px;
+                    font-size: 15px;
+                    line-height: 38px;
+
+                    i {
+                        opacity: 0.6;
+                        font-style: normal;
+                    }
+
+                }
+                    
+            }
+
+        }
+
+    }
+
+}

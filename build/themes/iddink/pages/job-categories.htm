@@ -1,0 +1,15 @@
+title = "Jobs categories"
+url = "/jobs/:category?"
+layout = "tpl-job-category"
+is_hidden = 0
+
+[jobsCategory]
+categorySlug = "{{ :category }}"
+
+[staticMenu]
+code = "main-menu"
+
+[viewBag]
+==
+
+{% partial 'job-listing' %}

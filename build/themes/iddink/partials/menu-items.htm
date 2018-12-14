@@ -1,0 +1,21 @@
+[viewBag]
+==
+<ul class="menu">
+    {% for item in items %}
+        <li class="{{ item.isActive or item.isChildActive ? 'active' : '' }}">
+            <a href="{{ item.url }}" title="{{ item.title|_ }}" {{ item.items ? 'class="has-children"' : null }}>{{ item.title|_ }}</a>
+            {% if item.items %}
+                <i class="fas fa-chevron-down" onclick="showSubMenu(this)"></i>
+                <ul class="sub">
+                    {% for item in item.items %}
+                        <li class="{{ item.isActive ? 'active' : '' }}">
+                            <a href="{{ item.url }}" title="{{ item.title|_ }}">
+				                {{ item.title|_ }}
+				            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

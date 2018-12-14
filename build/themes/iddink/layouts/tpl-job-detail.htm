@@ -1,0 +1,211 @@
+description = "Job detail page"
+
+[staticMenu mainMenu]
+code = "main-menu"
+
+[staticPage]
+
+jobSlug = "{{ :slug }}"
+==
+
+{% partial 'head' %}
+{% page %}
+<!--<script type="text/javascript">
+	function initJobMap()
+	{
+		var job_map = document.getElementById('job_map');
+		var job_map_mobile = document.getElementById('job_map_mobile');
+		var map = new google.maps.Map(job_map, {
+			center: {lat: {{ record.lat }}, lng: {{ record.lng }}},
+			zoom: 13,
+			scrollwheel: false,
+			draggable: true,
+			mapTypeControl: false,
+			scaleControl: false,
+			streetViewControl: false
+		});
+		var map_mobile = new google.maps.Map(job_map_mobile, {
+			center: {lat: {{ record.lat }}, lng: {{ record.lng }}},
+			zoom: 13,
+			scrollwheel: false,
+			draggable: true,
+			mapTypeControl: false,
+			scaleControl: false,
+			streetViewControl: false
+		});
+		var marker = new google.maps.Marker({
+			map: map,
+			position: new google.maps.LatLng({{ record.lat }}, {{ record.lng }})
+		});
+		var marker = new google.maps.Marker({
+			map: map_mobile,
+			position: new google.maps.LatLng({{ record.lat }}, {{ record.lng }})
+		});
+		map.set('styles', 
+			[
+				{
+					"featureType": "administrative",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#444444"
+						}
+					]
+				},
+				{
+					"featureType": "landscape",
+					"elementType": "all",
+					"stylers": [
+						{
+							"color": "#f2f2f2"
+						}
+					]
+				},
+				{
+					"featureType": "poi",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "road",
+					"elementType": "all",
+					"stylers": [
+						{
+							"saturation": -100
+						},
+						{
+							"lightness": 45
+						}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "simplified"
+						}
+					]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "labels.icon",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "transit",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "water",
+					"elementType": "all",
+					"stylers": [
+						{
+							"color": "#7f8ec1"
+						},
+						{
+							"visibility": "on"
+						}
+					]
+				}
+			]
+		);
+		map_mobile.set('styles', 
+			[
+				{
+					"featureType": "administrative",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#444444"
+						}
+					]
+				},
+				{
+					"featureType": "landscape",
+					"elementType": "all",
+					"stylers": [
+						{
+							"color": "#f2f2f2"
+						}
+					]
+				},
+				{
+					"featureType": "poi",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "road",
+					"elementType": "all",
+					"stylers": [
+						{
+							"saturation": -100
+						},
+						{
+							"lightness": 45
+						}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "simplified"
+						}
+					]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "labels.icon",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "transit",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "water",
+					"elementType": "all",
+					"stylers": [
+						{
+							"color": "#7f8ec1"
+						},
+						{
+							"visibility": "on"
+						}
+					]
+				}
+			]
+		);
+	}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_CXNi6mCASl4D3Ud9ofmUqE7Lt9Kb5ps&callback=initJobMap" defer></script>-->
+{% partial 'footer' %}

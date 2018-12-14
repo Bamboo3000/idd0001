@@ -1,5 +1,0 @@
-title: Team
-modelClass: Searchit\Team\Models\Team
-nameFrom: name
-toolbar:
-    buttons: reorder_toolbar

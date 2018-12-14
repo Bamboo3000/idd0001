@@ -1,0 +1,60 @@
+.breadcrumbs {
+    width: 100%;
+    height: auto;
+    border-top: 1px solid rgba($color-primary, 0.1);
+    background-color: rgba($color-primary, 0.1);
+    font-size: 13px;
+    
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    ul {
+        display: block;
+        position: relative;
+        padding: 0;
+        margin: 0 0 0 -4px;
+
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        li {
+            display: inline-block;
+            height: 28px;
+            line-height: 26px;
+            margin: 0 4px;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0;
+
+            h1 {
+                margin: 0;
+                font-size: inherit;
+                font-weight: inherit;
+                letter-spacing: inherit;
+                line-height: inherit;
+            }
+
+            &:hover {
+                
+                a {
+                    text-decoration: underline;
+                    line-height: 1;
+                }
+
+            }
+
+        }
+
+        i {
+            float: left;
+        }
+
+    }
+
+}

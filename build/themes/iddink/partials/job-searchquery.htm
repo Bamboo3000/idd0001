@@ -1,0 +1,19 @@
+<span>{{ jobsCount }}</span>
+{% if search and not location %}
+    <p>&nbsp;{{ 'jobs found for'|_ }}:&nbsp;</p>
+    <span>{{ search }}</span>
+{% elseif location and not search %}
+    <p>&nbsp;{{ 'jobs found in'|_ }}:</p>
+    <span>{{ location }}</span>
+{% elseif location and search %}
+    <p>&nbsp;{{ 'jobs found for'|_ }}:&nbsp;</p>
+    <span>{{ search }}</span>
+    <p>&nbsp;{{ 'in'|_ }}:&nbsp;</p>
+    <span>{{ location }}</span>
+{% else %}
+    <p>&nbsp;{{ 'jobs found'|_ }}</p>
+{% endif %}
+<div class="showing">
+    <p>{{ 'showing'|_ }}:&nbsp;&nbsp;</p><span>{{ pagination.currentPage == 1 ? '1' : (pagination.currentPage - 1) * 20 + 1 }}</span><p>&nbsp;-&nbsp;</p><span>{{ pagination.lastPage == pagination.currentPage ? (pagination.currentPage - 1) * 20 + jobs|length : pagination.currentPage * 20 }}</span>
+    <p>{{ 'of'|_ }}&nbsp;{{ jobsCount }}&nbsp;{{ 'jobs'|_ }}</p>
+</div>

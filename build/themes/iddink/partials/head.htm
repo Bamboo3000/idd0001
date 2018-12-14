@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Meta title -->
+	<title>
+		{% if record.meta_title %}
+			{{ record.meta_title }}
+		{% elseif record.title %}
+			{{ record.title }} | Iddink Group
+		{% elseif this.page.meta_title %}
+			{{ this.page.meta_title }}
+		{% else %}
+			{{ this.page.title }} | Iddink Group
+		{% endif %}
+	</title>
+	<!-- /Meta title -->
+	<!-- Google Tag Manager -->
+	<!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PMG8TTV');</script>-->
+	<!-- /Google Tag Manager -->
+	<!-- Bing Webmaster Tools -->
+	<!--<meta name="msvalidate.01" content="DB26E7D9A02A63952EAC119AC5AB03FC" />-->
+	<!-- /Bing Webmaster Tools -->
+	<!-- Meta description -->
+	{% if record.meta_description %}
+		<meta name="description" content="{{ record.meta_description }}">
+	{% elseif record.excerpt %}
+		<meta name="description" content="{{ record.excerpt|striptags|slice(0, 160) }}">
+	{% elseif record.summary %}
+		<meta name="description" content="{{ record.summary|striptags|slice(0, 160) }}">
+	{% elseif this.page.meta_description %}
+		<meta name="description" content="{{ this.page.meta_description }}">
+	{% endif %}
+	<!-- /Meta description -->
+	<!-- Other meta -->
+	{% if record.meta_keywords %}
+		<meta name="keywords" content="{{ record.meta_keywords }}">
+	{% endif %}
+	<meta name="author" content="Iddink Group">
+	<meta name="generator" content="Iddink Group">
+	<link rel="shortcut icon" href="https://www.iddinkgroup.com/wp-content/uploads/2017/10/favicon.png">
+	<!-- /Other meta -->
+	<!-- OG Tags -->
+		<!--<meta property="fb:app_id" content="382574281913074">-->
+		<meta property="og:site_name" content="Iddink Group"/>
+		{% if record.meta_title %}
+			<meta property="og:title" content="{{ record.meta_title }}"/>
+		{% elseif record.title %}
+			<meta property="og:title" content="{{ record.title }} | Iddink Group"/>
+		{% elseif this.page.meta_title %}
+			<meta property="og:title" content="{{ this.page.meta_title }}"/>
+		{% else %}
+			<meta property="og:title" content="{{ this.page.title }} | Iddink Group"/>
+		{% endif %}
+		<meta property="og:url" content="{{ url('/') }}/{{ this.page.url }}"/>
+		<meta property="og:type" content="article" />
+		<meta property="og:locale" content="nl_NL">
+		{% if record.meta_description %}
+			<meta property="og:description" content="{{ record.meta_description }}"/>
+		{% elseif record.excerpt %}
+			<meta property="og:description" content="{{ record.excerpt|striptags|slice(0, 160) }}"/>
+		{% elseif record.summary %}
+			<meta property="og:description" content="{{ record.summary|striptags|slice(0, 160) }}"/>
+		{% elseif this.page.meta_description %}
+			<meta property="og:description" content="{{ this.page.meta_description }}"/>
+		{% endif %}
+		<meta property="og:image" content="{{ 'assets/img/iddink_g_logo.png'|theme }}"/>
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="175" />
+		<meta property="og:image:height" content="70" />
+	<!-- /OG Tags -->
+	<!-- prefetching -->
+	{% if jobs %}
+		{% if pagination.lastPage > 1 %}
+			<link rel="prefetch" href="{{ pagination.url(pagination.currentPage+1) }}">
+			<link rel="prerender" href="{{ pagination.url(pagination.currentPage+1) }}">
+		{% endif %}
+	{% else %}
+		<link rel="prefetch" href="{{ url('/') }}/jobs?page=1">
+		<link rel="prerender" href="{{ url('/') }}/jobs?page=1">
+	{% endif %}
+	<!-- /hreflangs and prefetching -->
+	<!-- Favicons 
+		<link rel="apple-touch-icon" sizes="57x57" href="{{ 'assets/img/favicon/apple-icon-57x57.png'|theme }}">
+		<link rel="apple-touch-icon" sizes="60x60" href="{{ 'assets/img/favicon/apple-icon-60x60.png'|theme }}">
+		<link rel="apple-touch-icon" sizes="72x72" href="{{ 'assets/img/favicon/apple-icon-72x72.png'|theme }}">
+		<link rel="apple-touch-icon" sizes="76x76" href="{{ 'assets/img/favicon/apple-icon-76x76.png'|theme }}">
+		<link rel="apple-touch-icon" sizes="114x114" href="{{ 'assets/img/favicon/apple-icon-114x114.png'|theme }}">
+		<link rel="apple-touch-icon" sizes="120x120" href="{{ 'assets/img/favicon/apple-icon-120x120.png'|theme }}">
+		<link rel="apple-touch-icon" sizes="144x144" href="{{ 'assets/img/favicon/apple-icon-144x144.png'|theme }}">
+		<link rel="apple-touch-icon" sizes="152x152" href="{{ 'assets/img/favicon/apple-icon-152x152.png'|theme }}">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/img/favicon/apple-icon-180x180.png'|theme }}">
+		<link rel="icon" type="image/png" sizes="192x192"  href="{{ 'assets/img/favicon/android-icon-192x192.png'|theme }}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/img/favicon/favicon-32x32.png'|theme }}">
+		<link rel="icon" type="image/png" sizes="96x96" href="{{ 'assets/img/favicon/favicon-96x96.png'|theme }}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/img/favicon/favicon-16x16.png'|theme }}">
+		<link rel="manifest" href="{{ 'assets/img/favicon/manifest.json'|theme }}">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="{{ 'assets/img/favicon/ms-icon-144x144.png'|theme }}">
+		<meta name="theme-color" content="#ffffff">
+	 /Favicons -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,700" media="none" onload="if(media!='all')media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,700"></noscript>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" media="none" onload="if(media!='all')media='all'"><noscript><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"></noscript>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" media="none" onload="if(media!='all')media='all'"><noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"></noscript>
+	<link rel="stylesheet" href="{{ [
+        'assets/css/prototype.css',
+        '@framework.extras'
+	]|theme }}">
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) 
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMG8TTV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	 /Google Tag Manager (noscript) -->
+	{% partial 'navigation' %}
+	<div id="wrapper">

@@ -1,0 +1,19 @@
+<form>
+    {% if job_title %}
+        <i class="material-icons close" onclick="hideForm()">close</i>
+        <div class="title">
+            <p>{{ 'Applying for'|_ }}: <span>{{ job_title|raw }}</span></p>
+        </div>
+        <h2>
+            {{ 'Application submitted!'|_ }}
+        </h2>
+    {% else %}
+        <i class="material-icons close" onclick="hideCVForm()">close</i>
+        <div class="title">
+            <p><span>{{ 'Upload your CV to our database'|_ }}!</span></p>
+        </div>
+        <h2>
+            {{ 'CV uploaded!'|_ }}
+        </h2>
+    {% endif %}
+</form>

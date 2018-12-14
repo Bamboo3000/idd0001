@@ -1,0 +1,17 @@
+<aside class="job-listing__search row justify-content-between align-items-end">
+    <div class="col-5">
+        <span>Waar ben je naar op zoek</span>
+        <small>positie, trefwoord of bedrijfsnaam</small>
+        <input type="text" name="title" placeholder='Functietitel - "Java Developer"' value="{{ linkQuery['title'] }}">
+        <i class="fas fa-search"></i>
+    </div>
+    <div class="col-5">
+        <span>Waarin</span>
+        <small>land, stad of staat</small>
+        <input type="text" name="location" placeholder='Plaats -"Amsterdam"' value="{{ linkQuery['location'] }}">
+        <i class="fas fa-map-marker-alt"></i>
+    </div>
+    <div class="col-2">
+        <button type="submit" id="jobFilterSearch" onclick="hideFilterForm()">Zoeken <i class="fas fa-search white"></i></button>
+    </div>
+</aside>

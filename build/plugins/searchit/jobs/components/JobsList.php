@@ -7,6 +7,7 @@ use Searchit\Jobs\Models\Category;
 use Illuminate\Pagination\Paginator;
 use DB;
 use Lang;
+use Redirect;
 use Collection;
 
 class JobsList extends ComponentBase
@@ -135,19 +136,12 @@ class JobsList extends ComponentBase
         $this->jobs = $this->jobs->where('location', 'like', "%{$location}%");
       }
 
-      if(Lang::getLocale() == 'en') {
-        $this->page['jobCat'] = "/en/jobs/";
-        $this->page['jobUrl'] = "/en/job/";
-      } else {
-        $this->page['jobCat'] = "/nl/vacatures/";
-        $this->page['jobUrl'] = "/nl/vacature/";
-      }
       $this->page['search'] = $title;
       $this->page['location'] = $location;
       $this->page['jobsCount'] = $this->jobs->count();
-      $this->page['jobs'] = $this->jobs->orderBy('date', 'desc')->paginate(20);
+      $this->page['jobs'] = $this->jobs->orderBy('date', 'desc')->paginate(1);
       $this->page['pagination'] = $this->page['jobs']->appends($this->parameters);
-
+      
       $link = $this->page['pagination']->url($this->page['pagination']->currentPage());
       $this->page['hrefQuery'] = preg_split("/(\?)/", $link)[1];
       $link_query_arr = preg_split("/(\&)/", $this->page['hrefQuery']);
@@ -164,11 +158,8 @@ class JobsList extends ComponentBase
           }
         }
       }
-
-      // dd($this->linkQuery);
-
+      
       $this->page['linkQuery'] = $this->linkQuery;
-
     }
 
     /**

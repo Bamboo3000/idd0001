@@ -1,0 +1,40 @@
+{% if pagination.lastPage > 1 %}
+    <nav class="job-listing__pagination">
+        {% if pagination.currentPage > 1 %}
+            <a href="{{ pagination.url(pagination.currentPage-1) }}" class="prev">
+                <i class="fas fa-chevron-left"></i>
+                <span>{{ 'Prev' }}</span>
+            </a>
+        {% endif %}
+        <ul>
+            {% for page in 1..pagination.lastPage %}
+                {% if page == 1 or page == pagination.lastPage or pagination.currentPage == page %}
+                    <li {{ pagination.currentPage == page ? 'class="active"' : null }} >
+                        <a href="{{ pagination.url(page) }}">{{ page }}</a>
+                    </li>
+                {% elseif page == pagination.currentPage - 3 or page == pagination.currentPage + 3 %}
+                    <li>
+                        ...
+                    </li>
+                {% elseif page == pagination.currentPage - 2 or page == pagination.currentPage + 2 or page == pagination.currentPage - 1 or page == pagination.currentPage + 1 %}
+                    <li>
+                        <a href="{{ pagination.url(page) }}">{{ page }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% if pagination.lastPage > pagination.currentPage %}
+            <a href="{{ pagination.url(pagination.currentPage+1) }}" class="next">
+                <span>{{ 'Next' }}</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        {% endif %}
+    </nav>
+{% endif %}
+{% if hrefQuery %}
+    <script>
+        var $pathname = window.location.pathname;
+        var $path = $pathname + '?' + '{{ hrefQuery|raw }}';
+        window.history.pushState(null, null, $path);
+    </script>
+{% endif %}

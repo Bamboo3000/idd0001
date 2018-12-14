@@ -17,30 +17,10 @@ class Cronjob extends ComponentBase
         ];
     }
 
-    // /**
-    //  * @var string URL address of XML file to parse
-    //  */
-    // protected $file = 'http://external.srch20.com/searchit/xml/jobs';
-
-    // /**
-    //  * @var object of jobs
-    //  */
-    // protected $jobs;
-
     /**
      * @var array of job IDs
      */
     protected $job_ids = [];
-
-    // /**
-    //  * @var object of job categories pivot table
-    //  */
-    // protected $jobSingleCatPivot;
-
-    // /**
-    //  * @var object of job types pivot table
-    //  */
-    // protected $jobSingleTypePivot;
 
     /*
     *
@@ -54,6 +34,27 @@ class Cronjob extends ComponentBase
 
     /*
     *
+    * Checking if job has category IDDINK
+    *
+    */
+    protected function checkForIddink($job)
+    {
+        $jobCategory = $job->categories->category;
+        $categoryArray = [];
+        foreach($jobCategory as $category) {
+            if($category['group'] == '#2 Skill Area') {
+                $categoryArray[] = $category;
+            }
+        }
+        if(in_array("IDDINK", $categoryArray)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+    *
     * Parsing XML and update, delete or add new job to database, alongside with proper categories and type
     *
     */
@@ -63,42 +64,66 @@ class Cronjob extends ComponentBase
         $vacancies = $xml->vacancy;
 
         foreach($vacancies as $job) {
-            array_push($this->job_ids, $job->id);
-            $date = date("Y-m-d H:i:s", strtotime($job->publish_date));
-            
-            if(!empty($job->url_title)) {
-                $slug = $job->url_title;
-            } else {
-                $slug = $this->slugify( $job->title.'-'.$job->id );
-            }
-            $salary_min = preg_replace("/\./", "", $job->salary_fixed);
-            $salary_max = preg_replace("/\./", "", $job->salary_bonus);
-            if($job->meta) {
-                $meta_title = $job->meta;
-            } else {
-                $meta_title = null;
-            }
-            if($job->custom_apply_text) {
-                $meta_keywords = $job->custom_apply_text;
-            } else {
-                $meta_keywords = null;
-            }
-            if($job->custom_callback_button) {
-                $meta_description = $job->custom_callback_button;
-            } else {
-                $meta_description = null;
-            }
 
-            /*
-            *
-            * Run when job in XML is already in database and modification date is different than one in database.
-            *
-            */
-            if($this->getJobCount('job_id', $job->id) !== 0) {
-                if($this->getJobVal('job_id', $job->id, 'date') !== $date) {
+            if($this->checkForIddink($job)) { /* Check for IDDINK job category */
 
-                    Job::where('job_id', $job->id)->update(
+                array_push($this->job_ids, $job->id);
+                $date = date("Y-m-d H:i:s", strtotime($job->publish_date));
+                
+                if(!empty($job->url_title)) {
+                    $slug = $job->url_title;
+                } else {
+                    $slug = $this->slugify( $job->title.'-'.$job->id );
+                }
+                $salary_min = preg_replace("/\./", "", $job->salary_fixed);
+                $salary_max = preg_replace("/\./", "", $job->salary_bonus);
+                if($job->meta) {
+                    $meta_title = $job->meta;
+                } else {
+                    $meta_title = null;
+                }
+                if($job->custom_apply_text) {
+                    $meta_keywords = $job->custom_apply_text;
+                } else {
+                    $meta_keywords = null;
+                }
+                if($job->custom_callback_button) {
+                    $meta_description = $job->custom_callback_button;
+                } else {
+                    $meta_description = null;
+                }
+
+                /*
+                *
+                * Run when job in XML is already in database and modification date is different than one in database.
+                *
+                */
+                if($this->getJobCount('job_id', $job->id) !== 0) {
+                    if($this->getJobVal('job_id', $job->id, 'date') !== $date) {
+
+                        Job::where('job_id', $job->id)->update(
+                            [
+                                'title'         => $job->title,
+                                'summary'       => $job->description,
+                                'date'          => $date,
+                                'salary_min'    => $salary_min,
+                                'salary_max'    => $salary_max,
+                                'location'      => $job->address,
+                                'lat'           => $job->lat,
+                                'lng'           => $job->lng,
+                                'slug'          => $slug,
+                                'meta_title'    => $meta_title,
+                                'meta_keywords' => $meta_keywords,
+                                'meta_description' => $meta_description
+                            ]
+                        );
+
+                    }
+                } else {
+
+                    Job::insertGetId(
                         [
+                            'job_id'        => $job->id,
                             'title'         => $job->title,
                             'summary'       => $job->description,
                             'date'          => $date,
@@ -113,64 +138,17 @@ class Cronjob extends ComponentBase
                             'meta_description' => $meta_description
                         ]
                     );
-
+                    
                 }
-            } else {
 
-                Job::insertGetId(
-                    [
-                        'job_id'        => $job->id,
-                        'title'         => $job->title,
-                        'summary'       => $job->description,
-                        'date'          => $date,
-                        'salary_min'    => $salary_min,
-                        'salary_max'    => $salary_max,
-                        'location'      => $job->address,
-                        'lat'           => $job->lat,
-                        'lng'           => $job->lng,
-                        'slug'          => $slug,
-                        'meta_title'    => $meta_title,
-                        'meta_keywords' => $meta_keywords,
-                        'meta_description' => $meta_description
-                    ]
-                );
-                
-            }
+                $this->setJobsCategories($job);
 
-            $this->setJobsCategories($job);
-
-
-            // $jobSingleRow = Job::where('job_id', $job->id)->first();
-            // $jobSingleID = $jobSingleRow->id;
-            // foreach($jobCategory as $category)
-            // {
-            //     if($category['group'] == '#2 Skill Area' || $category['group'] == '#3 Skill IT') {
-            //         if($category == 'Sales' || $category == 'Recruitment') {
-            //             $cat = 'Recruitment and Sales';
-            //         } else {
-            //             $cat = $category;
-            //         }
-            //         $jobSingleCatID = Category::where('category_name', $cat)->pluck('id');
-            //         if($jobSingleCatID) {
-            //             $jobSingleCatPivot->where('job_id', $jobSingleID)->delete();
-            //             $jobSingleCatPivot->insert([ 'job_id' => $jobSingleID, 'category_id' => $jobSingleCatID ]);
-            //         }
-            //     }
-            // }
+            } /* /Check for IDDINK job category */
 
         }
 
         $this->getFulfilledJobs();
         $this->removeDuplicateEntries();
-
-        // $fulfilledJobs = DB::table('searchit_jobs_job_categories')->where('category_id', Category::where('category_slug', 'fulfilled')->pluck('id'))->get();
-        // $fulfilledCategory = Category::where('category_slug', 'fulfilled')->pluck('id');
-
-        // foreach($fulfilledJobs as $job) {
-        //     DB::table('searchit_jobs_job_categories')->where('job_id', $job->job_id)->delete();
-        //     DB::table('searchit_jobs_job_categories')->insert([ 'job_id' => $job->job_id, 'category_id' => $fulfilledCategory ]);
-        //     DB::table('searchit_jobs_job_types')->where('job_id', $job->job_id)->delete();
-        // }
 
     }
 
