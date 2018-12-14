@@ -139,7 +139,7 @@ class JobsList extends ComponentBase
       $this->page['search'] = $title;
       $this->page['location'] = $location;
       $this->page['jobsCount'] = $this->jobs->count();
-      $this->page['jobs'] = $this->jobs->orderBy('date', 'desc')->paginate(1);
+      $this->page['jobs'] = $this->jobs->orderBy('date', 'desc')->paginate(12);
       $this->page['pagination'] = $this->page['jobs']->appends($this->parameters);
       
       $link = $this->page['pagination']->url($this->page['pagination']->currentPage());
