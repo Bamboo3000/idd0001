@@ -8,9 +8,9 @@
 !/build/themes
 !/build/plugins/searchit
 !/build/plugins/searchit/*
-/build/themes/searchit/content
-/build/themes/searchit/content/*
-/build/themes/searchit/meta
-/build/themes/searchit/meta/*
+/build/themes/iddink/content
+/build/themes/iddink/content/*
+/build/themes/iddink/meta
+/build/themes/iddink/meta/*
 /.DS_Store
 **/.DS_Store
