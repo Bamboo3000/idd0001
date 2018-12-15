@@ -6,6 +6,25 @@
 	top: 0;
 	z-index: 99999;
 
+	@media(max-width: 767px) {
+		position: relative;
+		top: auto;
+
+		.logo {
+			padding: 8px 0 5px!important;
+
+			img {
+				width: 100px!important;
+			}
+
+		}
+
+		ul.sub-menu {
+			top: 53px;
+		}
+
+	}
+
 	&.scrolled {
 
 		.logo {
@@ -26,6 +45,10 @@
 	&__container {
 		padding: 0 37px 0 40px;
 
+		@media(max-width: 767px) {
+			padding: 0 30px;
+		}
+
 		.logo {
 			padding: 20px 0 13px;
 			transition: all 200ms ease;
@@ -36,11 +59,76 @@
 
 		}
 
+		.mobile-btn {
+			appearance: none;
+			border: none;
+			outline: none;
+			background-color: white;
+			display: none;
+			align-items: center;
+			cursor: pointer;
+
+			@media(max-width: 767px) {
+				display: flex;
+			}
+
+			i {
+				font-size: 24px;
+				line-height: 1;
+
+				&.fa-times {
+					display: none;
+				}
+
+			}
+
+			&.active {
+				
+				i {
+
+					&.fa-bars {
+						display: none;
+					}
+	
+					&.fa-times {
+						display: block;
+					}
+	
+				}
+
+			}
+
+			span {
+				font-size: 20px;
+				line-height: 1;
+				font-weight: 300;
+				text-transform: uppercase;
+				margin-left: 8px;
+			}
+
+		}
+
 	}
 
 	&__menu {
 		display: flex;
 		align-items: stretch;
+
+		@media(max-width: 767px) {
+			display: none;
+			align-items: initial;
+			margin: 0 -15px;
+			min-width: 100vw;
+			height: auto;
+			position: absolute;
+			top: 53px;
+			background-color: white;
+
+			&.active {
+				display: block;
+			}
+
+		}
 
 		> ul {
 			padding: 0;
@@ -48,10 +136,29 @@
 			display: flex;
 			flex-wrap: nowrap;
 
+			@media(max-width: 767px) {
+				padding-top: 30px;
+				padding-bottom: 15px;
+				margin: 0;
+				display: block;
+				flex-wrap: initial;
+			}
+
 			> li {
 				position: relative;
 				display: flex;
 				align-items: stretch;
+
+				@media(max-width: 767px) {
+					display: block;
+					align-items: initial;
+
+					&.home {
+						display: none;
+					}
+
+				}
+
 
 				> a {
 					padding: 0 15px;
@@ -62,6 +169,11 @@
 					display: flex;
 					align-items: center;
 
+					@media(max-width: 767px) {
+						padding: 5px 15px;
+						font-size: 24px;
+					}
+
 					img {
 						margin-top: -1px;
 					}
@@ -69,7 +181,6 @@
 					&:hover {
 						text-decoration: none;
 					}
-
 
 				}
 
@@ -83,13 +194,69 @@
 						width: 100%;
 						content: '';
 						z-index: 9;
+
+						@media(max-width: 767px) {
+							display: none;
+						}
+
 					}
 
 				}
 
 				&.has-child {
 
+					@media(max-width: 767px) {
+						display: flex;
+						justify-content: space-between;
+						flex-wrap: wrap;
+						padding-right: 15px;
+					}
+
+					.mobile-sub-menu {
+						display: none;
+
+						@media(max-width: 767px) {
+							display: inline-block;
+						}
+
+						i {
+							font-size: 18px;
+
+							&.fa-minus {
+								display: none;
+							}
+
+						}
+
+						span {
+							font-size: 20px;
+							font-weight: 300;
+							margin-left: 6px;
+						}
+
+						&.active {
+
+							i {
+
+								&.fa-bars {
+									display: none;
+								}
+
+								&.fa-minus {
+									display: inline-block;
+								}
+							
+							}
+
+						}
+
+					}
+
 					> a {
+
+						@media(max-width: 767px) {
+							display: inline-block;
+						}
 
 						> span {
 							vertical-align: middle;
@@ -101,7 +268,12 @@
 							border-left: 3px solid transparent;
 							border-right: 3px solid transparent;
 							border-top: 3px solid #777;
-						}
+
+							@media(max-width: 767px) {
+								display: none;
+							}
+
+ 						}
 
 					}
 
@@ -109,6 +281,16 @@
 
 						> ul.sub-menu {
 							display: block;
+
+							@media(max-width: 767px) {
+								display: none;
+
+								&.active {
+									display: block;
+								}
+								
+							}
+
 						}
 
 					}
@@ -127,6 +309,20 @@
 					top: 93px;
 					z-index: 9999;
 
+					@media(max-width: 767px) {
+						position: relative;
+						margin: 0;
+						width: 100%;
+						top: auto;
+						right: auto;
+						box-shadow: none;
+
+						&.active {
+							display: block!important;
+						}
+
+					}
+
 					> li {
 
 						> a {
@@ -137,9 +333,20 @@
 							color: #777;
 							font-weight: 300;
 
+							@media(max-width: 767px) {
+								font-size: 20px;
+								padding: 5px 40px;
+								color: #333;
+							}
+
 							&:hover {
 								background-color: #eee;
 								text-decoration: none;
+
+								@media(max-width: 767px) {
+									background-color: white;
+								}
+
 							}
 
 						}
@@ -149,6 +356,11 @@
 							a {
 								background-color: #eee;
 								text-decoration: none;
+
+								@media(max-width: 767px) {
+									background-color: white;
+								}
+
 							}
 
 						}

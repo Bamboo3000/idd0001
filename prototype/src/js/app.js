@@ -78,13 +78,15 @@ function menuScroll()
 {
 	var $nav = $('header.navigation');
 	var $scroll = $(window).scrollTop();
-	if($scroll >= 100) {
-		if(!$nav.hasClass('scrolled')) {
-			$nav.addClass('scrolled');
-		}
-	} else {
-		if($nav.hasClass('scrolled')) {
-			$nav.removeClass('scrolled');
+	if($(window).width() > 767) {
+		if($scroll >= 100) {
+			if(!$nav.hasClass('scrolled')) {
+				$nav.addClass('scrolled');
+			}
+		} else {
+			if($nav.hasClass('scrolled')) {
+				$nav.removeClass('scrolled');
+			}
 		}
 	}
 }
@@ -157,8 +159,23 @@ function clearForm(oForm)
 	}
 }
 
-$(document).ready(function() {
+function subMenuMobile()
+{
+	$('.mobile-sub-menu').on('click', function(){
+		$(this).toggleClass('active').next('ul.sub-menu').toggleClass('active');
+	});
+}
 
+function menuMobile()
+{
+	$('.mobile-btn').on('click', function(){
+		$(this).toggleClass('active').next('.navigation__menu').toggleClass('active');
+	});
+}
+
+$(document).ready(function() {
+	menuMobile();
+	subMenuMobile();
 });
 
 $(window).on('load scroll', function() {
