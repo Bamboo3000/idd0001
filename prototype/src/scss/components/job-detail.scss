@@ -4,6 +4,10 @@
 
     &__description {
 
+        // @media(max-width: 767px) {
+        //     order: 100;
+        // }
+
         .btn {
             margin-top: 20px;
             padding: 16px 48px;
@@ -20,6 +24,11 @@
     &__sidebar {
         background-color: white;
         padding: 20px;
+
+        @media(max-width: 767px) {
+            // order: 1;
+            margin-top: 30px;
+        }
 
         .btn {
             display: block;
@@ -66,6 +75,17 @@
             padding: 4px 8px;
             display: inline-block;
             position: relative;
+            width: 44px;
+            text-align: center;
+
+            @media(max-width: 1200px) {
+                padding: 4px 6px;
+                width: 36px;
+            }
+
+            @media(max-width: 991px) {
+                padding: 4px;
+            }
 
             &:hover {
                 text-decoration: none;

@@ -24,7 +24,7 @@ jobfulfilled = "{{ :slug }}"
 
 <section class="job-detail container">
     <div class="row align-items-start">
-        <article class="col-8 job-detail__description">
+        <article class="col-md-8 col-12 job-detail__description">
             <h1 class="job-detail__title">
                 {{ record.title|raw }}
             </h1>
@@ -34,12 +34,12 @@ jobfulfilled = "{{ :slug }}"
                 {% endautoescape %}
             </div>
             {% if not fulfilled %}
-                <a href="javascript:void(0)" onclick="showForm()" class="btn btn-default">
+                <a href="javascript:void(0)" onclick="showForm()" class="btn btn-default d-none d-sm-none d-md-inline-block">
                     <span>Solliciteren</span>
                 </a>
             {% endif %}
         </article>
-        <aside class="col-4 job-detail__sidebar">
+        <aside class="col-md-4 col-12 job-detail__sidebar">
             {% if not fulfilled %}
                 <a href="javascript:void(0)" onclick="showForm()" class="btn btn-default btn-full">
                     <span>Solliciteren</span>
