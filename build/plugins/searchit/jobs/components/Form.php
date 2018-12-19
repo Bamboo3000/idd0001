@@ -29,7 +29,6 @@ class Form extends ComponentBase
 
     public function onRun()
 	{
-        $this->page['cvCaptcha'] = app('captcha')->display(['data-callback' => 'cvCaptchaCallback']);
         $this->page['appCaptcha'] = app('captcha')->display(['data-callback' => 'appCaptchaCallback']);
 	}
 
@@ -167,31 +166,14 @@ class Form extends ComponentBase
 
                 if(Input::get('form_type') == 'application') {
                     
-                    if(Lang::getLocale() == 'en') {
-                        $this->sendMail($form_data, 'Thanks for applying for a job at Search It Recruitment', 'application_en');
-                    } else {
-                        $this->sendMail($form_data, 'Bedankt voor solliciteren bij Search It Recruitment', 'application_nl');
-                    }
+                    $this->sendMail($form_data, 'Bedankt voor solliciteren bij Iddink Group', 'application_nl');
                     Flash::success('app');
-
-                } else {
-                    
-                    if(Lang::getLocale() == 'en') {
-                        $this->sendMail($form_data, 'Thanks for uploading your resume at Search It Recruitment', 'resume_en');
-                    } else {
-                        $this->sendMail($form_data, 'Bedankt voor het uploaden van jouw cv bij Search It Recruitment', 'resume_nl');
-                    }
-                    Flash::success('cv');
 
                 }
 
             } else {
 
-                if(Input::get('form_type') == 'application') {
-                    Flash::success('app');
-                } else {
-                    Flash::success('cv');
-                }
+                Flash::success('app');
 
             }
 
@@ -205,7 +187,7 @@ class Form extends ComponentBase
     {
         Mail::send('searchit.jobs::mail.'.$template, $inputs, function($message) use ($inputs, $subject){
 
-            $message->from('info@searchitrecruitment.com', 'Search It Recruitment');
+            $message->from('info@werkenbijiddink.nl', 'Iddink Group');
             $message->to($inputs['email'], $inputs['name']);
             $message->subject($subject);
 

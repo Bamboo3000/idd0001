@@ -6,6 +6,8 @@ is_hidden = 0
 [staticMenu]
 code = "main-menu"
 
+[form]
+
 [builderDetails]
 modelClass = "Searchit\Jobs\Models\Job"
 identifierValue = "{{ :slug }}"
@@ -97,11 +99,120 @@ jobfulfilled = "{{ :slug }}"
                     <i class="far fa-envelope"></i>
                 </a>
             </div>
-            <span class="title">
-                Vacature locatie:
-            </span>
-            <hr>
-            <div id="job_map"></div>
+            {% if record.lat and record.lng %}
+                <span class="title">
+                    Vacature locatie:
+                </span>
+                <hr>
+                <div id="job_map"></div>
+            {% endif %}
         </aside>
     </div>
 </section>
+<div id="jobFormModal" class="modal job-detail__modal" aria-hidden="true">
+    {% component 'form' %}
+</div>
+{% if record.lat and record.lng %}
+    <script type="text/javascript">
+        function initJobMap()
+        {
+            var job_map = document.getElementById('job_map');
+            var map = new google.maps.Map(job_map, {
+                center: {lat: {{ record.lat }}, lng: {{ record.lng }}},
+                zoom: 13,
+                scrollwheel: false,
+                draggable: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false
+            });
+            var marker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng({{ record.lat }}, {{ record.lng }})
+            });
+            map.set('styles', 
+                [
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#f2f2f2"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#7f8ec1"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ]
+            );
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnSlDqjT3toiFP6YSz9ddtlZKI7cN2Ay4&callback=initJobMap" defer></script>
+{% endif %}
