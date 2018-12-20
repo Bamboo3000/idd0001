@@ -1,0 +1,20 @@
+description = "Default article page no image"
+
+[staticMenu mainMenu]
+code = "main-menu"
+
+[staticPage]
+==
+
+
+{% partial 'head' %}
+
+<article class="default-article">
+    <div class="default-article__content">
+        <div class="container container-sml">
+            {% page %}
+        </div>
+    </div>
+</article>
+
+{% partial 'footer' %}

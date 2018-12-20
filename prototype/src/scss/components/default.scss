@@ -54,12 +54,8 @@
 
         a {
             color: $color-tertiary;
-            font-weight: 500;
-
-            &:hover {
-                text-decoration: underline;
-            }
-
+            font-weight: 600;
+            text-decoration: underline;
         }
 
         form {

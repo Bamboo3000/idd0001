@@ -334,6 +334,7 @@ $(document).ready(function() {
 	getReferrer();
 	onFormSubmit();
 	onFormLoad();
+	checkCookieMessage();
 });
 
 $(window).on('load scroll', function() {
