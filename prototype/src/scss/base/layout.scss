@@ -161,11 +161,11 @@ section {
 	left: 0;
 	right: 0;
 	z-index: 9999999999999999999999999999999999;
-	padding: 61px 0;
+	padding: 32px 0;
 	display: none;
 
-	@media(max-width: 640px) {
-		padding: 20px 0;
+	@media(max-width: 576px) {
+		padding: 16px 0;
 	}
 
 	&.show {
@@ -177,8 +177,10 @@ section {
 		flex-wrap: nowrap;
 		align-items: flex-start;
 		justify-content: space-between;
+		padding: 0!important;
 
-		@media(max-width: 640px) {
+		@media(max-width: 576px) {
+			padding: 0 15px!important;
 			flex-wrap: wrap;
 			justify-content: center;
 		}
@@ -186,11 +188,11 @@ section {
 	}
 
 	.message {
-		padding-right: 50px;
+		padding-right: 30px;
 		font-size: 16px;
 		line-height: 1.4;
 
-		@media(max-width: 640px) {
+		@media(max-width: 576px) {
 			padding-right: 0;
 			text-align: center;
 		}
@@ -207,7 +209,7 @@ section {
 		border: 2px solid white;
 		display: inline-block;
 
-		@media(max-width: 640px) {
+		@media(max-width: 576px) {
 			align-self: flex-end;
 			margin-top: 20px;
 		}
