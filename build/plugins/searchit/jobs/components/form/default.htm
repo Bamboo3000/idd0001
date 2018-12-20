@@ -46,7 +46,7 @@
         <label for="applicant-name">Naam <span>*</span></label>
         <input type="text" name="applicant-name" value="" required="required" placeholder="Jan Jansen">
         <label for="applicant-email">E-mail <span>*</span></label>
-        <input type="email" name="applicant-email" value="" required="required" placeholder="{{ 'janjansen@voorbeld.nl' }}">
+        <input type="email" name="applicant-email" value="" required="required" placeholder="{{ 'jjansen@voorbeeld.nl' }}">
         <label for="applicant-phone">Telefoon</label>
         <input type="tel" name="applicant-phone" value="" placeholder="+31 641234567">
         <label for="applicant-street">Straat</label>
@@ -352,12 +352,12 @@
         </div>
         <label for="applicant-message">Motivatie en extra details</label>
         <textarea class="message" name="applicant-message" placeholder="Ik heb een interessante skill set en voldoe aan het gevraagde profiel omdat..."></textarea>
-        <label for="applicant-photo">{{ 'Upload your photo' }}</label>
+        <label for="applicant-photo">Upload jouw foto</label>
         <div class="cvupload">
             <p id="cv-photo-desktop"><i>Geaccepteerde formats: .jpg | .png | .gif</i></p>
             <input type="file" accept="image/*" name="applicant-photo" value="" onchange="getFileName(this, 'cv-photo-desktop')">
         </div>
-        <label for="applicant-cv">{{ 'Upload your cv' }}</label>
+        <label for="applicant-cv">Upload jouw cv</label>
         <div class="cvupload">
             <p id="cv-cv"><i>Geaccepteerde formats: .doc | .docx | .pdf</i></p>
             <input type="file" accept="application/pdf,application/msword,
