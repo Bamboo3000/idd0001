@@ -75,19 +75,27 @@ class Cronjob extends ComponentBase
                 } else {
                     $slug = $this->slugify( $job->title.'-'.$job->id );
                 }
-                $salary_min = preg_replace("/\./", "", $job->salary_fixed);
-                $salary_max = preg_replace("/\./", "", $job->salary_bonus);
-                if($job->meta) {
+                if(!empty($job->salary_fixed)) {
+                    $salary_min = preg_replace("/\./", "", $job->salary_fixed);
+                } else {
+                    $salary_min = 0;
+                }
+                if(!empty($job->salary_bonus)) {
+                    $salary_max = preg_replace("/\./", "", $job->salary_bonus);
+                } else {
+                    $salary_max = 0;
+                }
+                if(!empty($job->meta)) {
                     $meta_title = $job->meta;
                 } else {
                     $meta_title = null;
                 }
-                if($job->custom_apply_text) {
+                if(!empty($job->custom_apply_text)) {
                     $meta_keywords = $job->custom_apply_text;
                 } else {
                     $meta_keywords = null;
                 }
-                if($job->custom_callback_button) {
+                if(!empty($job->custom_callback_button)) {
                     $meta_description = $job->custom_callback_button;
                 } else {
                     $meta_description = null;
