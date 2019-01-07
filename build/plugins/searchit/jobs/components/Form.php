@@ -78,7 +78,7 @@ class Form extends ComponentBase
                 }
 
                 $signature = bin2hex(hash_hmac('sha1', $this->endpoint.'/'.$this->key, $this->secret, true));
-                $uri = "http://api.searchsoftware.nl/{$this->endpoint}?api_key={$this->key}&signature={$signature}";
+                $uri = "https://api.searchsoftware.nl/{$this->endpoint}?api_key={$this->key}&signature={$signature}";
                 // Set up the url
 
                 $application_data = array(
