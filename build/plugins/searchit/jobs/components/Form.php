@@ -7,6 +7,7 @@ use Redirect;
 use Request;
 use Lang;
 use Mail;
+use Log;
 use Validator;
 use Searchit\Jobs\Models\Job;
 use System\Models\File as FileSys;
@@ -136,6 +137,7 @@ class Form extends ComponentBase
                 curl_setopt($request, CURLOPT_POSTFIELDS, $data);
 
                 $reply = curl_exec($request);
+                Log::info('CURL logging for form submition: '.$reply);
                 // close the session
                 curl_close($request);
 
