@@ -4,9 +4,19 @@
 
     &__description {
 
-        // @media(max-width: 767px) {
-        //     order: 100;
-        // }
+        .description-container {
+
+            ul {
+                padding: 5px 0 5px 30px;
+                list-style-type: circle;
+
+                li {
+                    padding: 3px 0;
+                }
+
+            }
+
+        }
 
         .btn {
             margin-top: 20px;
