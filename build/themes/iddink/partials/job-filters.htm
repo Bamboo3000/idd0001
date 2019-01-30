@@ -26,52 +26,6 @@
         {% endif %}
     {% endfor %}
 </div>
-<div class="job-listing__filters-container">
-    <span class="job-listing__filters-title">
-        Salaris range
-    </span>
-    <hr>
-    <label for="salary-min" class="select">
-        <span>Van:</span>
-        <select name="salary-min" onchange="document.getElementById('jobFilterSearch').click();">
-            <option value="">Alle</option>
-            {% for i in 2..9 %}
-                <option value="{{ i*5000 }}" {{ linkQuery['salary-min'] == i*5000 ? 'selected ' : null }}>{{ (i*5000)|number_format(0, '.', '.') }}</option>
-            {% endfor %}
-            {% for i in 5..9 %}
-                <option value="{{ i*10000 }}" {{ linkQuery['salary-min'] == i*10000 ? 'selected ' : null }}>{{ (i*10000)|number_format(0, '.', '.') }}</option>
-            {% endfor %}
-            <option value="100000+" {{ linkQuery['salary-min'] == '100000+' ? 'selected ' : null }}>{{ (100000)|number_format(0, '.', '.') }} +</option>
-        </select>
-        <i class="fas fa-chevron-down"></i>
-    </label>
-    <label for="salary-max" class="select">
-        <span>Tot:</span>
-        <select name="salary-max" onchange="document.getElementById('jobFilterSearch').click();">
-            <option value="">Alle</option>
-            {% for i in 6..9 %}
-                <option value="{{ i*5000 }}" {{ linkQuery['salary-max'] == i*5000 ? 'selected ' : null }}>{{ (i*5000)|number_format(0, '.', '.') }}</option>
-            {% endfor %}
-            {% for i in 5..14 %}
-                <option value="{{ i*10000 }}" {{ linkQuery['salary-max'] == i*10000 ? 'selected ' : null }}>{{ (i*10000)|number_format(0, '.', '.') }}</option>
-            {% endfor %}
-            <option value="150000+" {{ linkQuery['salary-max'] == '150000+' ? 'selected ' : null }}>{{ (150000)|number_format(0, '.', '.') }} +</option>
-        </select>
-        <i class="fas fa-chevron-down"></i>
-    </label>
-</div>
-<div class="job-listing__filters-container">
-    <span class="job-listing__filters-title">
-        Dienstverband
-    </span>
-    <hr>
-    {% for type in types if type.jobs|length != 0 %}
-        <label for="{{ type.type_name }}" class="checkbox" onclick="checkboxLabel(this); document.getElementById('jobFilterSearch').click();">
-            <input type="checkbox" name="type[]" value="{{ type.id }}" {% for typeLink in linkQuery['type'] %}{{ typeLink == type.id ? 'checked ' : null }}{% endfor %}>
-            <span>{{ type.type_name }} <small>({{ type.jobs|length }})</small></span>
-        </label>
-    {% endfor %}
-</div>
 <button type="button" class="btn btn-default" onclick="clearForm(this.form);document.getElementById('jobFilterSearch').click();">
     <span>Reset</span>
 </button>
