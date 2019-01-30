@@ -12,16 +12,6 @@
                         <span><i class="fas fa-map-marked-alt"></i>{{ record.location }}</span>
                     </div>
                 {% endif %}
-                {% if record.salary_min and record.salary_max %}
-                    <div class="info-single">
-                        <span><i class="fas fa-euro-sign"></i>{{ record.salary_min|number_format(0, '.', '.') }} - {{ record.salary_max|number_format(0, '.', '.') }}</span>
-                    </div>
-                {% endif %}
-                {% if record.types|last.type_name %}
-                    <div class="info-single">
-                        <span><i class="far fa-clock"></i>{{ record.types|last.type_name }}</span>
-                    </div>
-                {% endif %}
             </div>
         </div>
         <div class="col-lg-7 col-sm-12">

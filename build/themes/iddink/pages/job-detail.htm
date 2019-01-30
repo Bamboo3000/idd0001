@@ -61,16 +61,6 @@ jobfulfilled = "{{ :slug }}"
                         <p><i class="fas fa-map-marked-alt"></i>{{ record.location }}</p>
                     </div>
                 {% endif %}
-                {% if record.salary_min or record.salary_max %}
-                    <div class="info-single">
-                        <p><i class="fas fa-euro-sign"></i>{{ record.salary_min|number_format(0, '.', '.') }} - {{ record.salary_max|number_format(0, '.', '.') }}</p>
-                    </div>
-                {% endif %}
-                {% if record.types[0].type_name %}
-                    <div class="info-single">
-                        <p><i class="far fa-clock"></i>{{ record.types[0].type_name }}</p>
-                    </div>
-                {% endif %}
             </div>
             <span class="title social">
                 Deel deze vacature

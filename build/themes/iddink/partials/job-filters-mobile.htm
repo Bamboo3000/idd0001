@@ -1,45 +1,10 @@
 <aside class="job-listing__filters mobile">
-    {# <a href="" class="shortlisted-jobs">
-        <i class="material-icons">favorite</i>
-        <p>{{ 'Shortlist vacatures'|_ }}</p>
-    </a> #}
     <span class="shortlisted-jobs" onclick="openFilters(this)">
         <i class="fas fa-filter"></i>
         <p>{{ 'Job filters'|_ }}</p>
         <i class="fas fa-chevron-down"></i>
         <p>Open</p>
     </span>
-    <span class="title">
-        {{ 'Salary range'|_ }}
-    </span>
-    <label for="salary-min" class="select">
-        <span>{{ 'From'|_ }}:</span>
-        <select name="salary-min" onchange="document.getElementById('jobFilterSearch').click();">
-            <option value="">{{ 'Any'|_ }}</option>
-            {% for i in 2..9 %}
-                <option value="{{ i*5000 }}" {{ linkQuery['salary-min'] == i*5000 ? 'selected' : null }}>{{ (i*5000)|number_format(0, '.', '.') }}</option>
-            {% endfor %}
-            {% for i in 5..9 %}
-                <option value="{{ i*10000 }}" {{ linkQuery['salary-min'] == i*10000 ? 'selected' : null }}>{{ (i*10000)|number_format(0, '.', '.') }}</option>
-            {% endfor %}
-            <option value="100000+" {{ linkQuery['salary-min'] == '100000+' ? 'selected' : null }}>{{ (100000)|number_format(0, '.', '.') }} +</option>
-        </select>
-        <i class="fas fa-chevron-down"></i>
-    </label>
-    <label for="salary-max" class="select">
-        <span>{{ 'To'|_ }}:</span>
-        <select name="salary-max" onchange="document.getElementById('jobFilterSearch').click();">
-            <option value="">{{ 'Any'|_ }}</option>
-            {% for i in 6..9 %}
-                <option value="{{ i*5000 }}" {{ linkQuery['salary-max'] == i*5000 ? 'selected' : null }}>{{ (i*5000)|number_format(0, '.', '.') }}</option>
-            {% endfor %}
-            {% for i in 5..14 %}
-                <option value="{{ i*10000 }}" {{ linkQuery['salary-max'] == i*10000 ? 'selected' : null }}>{{ (i*10000)|number_format(0, '.', '.') }}</option>
-            {% endfor %}
-            <option value="150000+" {{ linkQuery['salary-max'] == '150000+' ? 'selected' : null }}>{{ (150000)|number_format(0, '.', '.') }} +</option>
-        </select>
-        <i class="fas fa-chevron-down"></i>
-    </label>
     <span class="title">
         {{ 'Job category'|_ }}
     </span>
@@ -54,14 +19,5 @@
                 <span>{{ sub.category_name }} - <small>{{ sub.jobs|length }}</small><i class="fas fa-times-circle"></i></span>
             </label> 
         {% endfor %} 
-    {% endfor %}
-    <span class="title">
-        {{ 'Job type'|_ }}
-    </span>
-    {% for type in types if type.jobs|length != 0 %}
-        <label for="{{ type.type_name }}" class="checkbox" onclick="checkboxLabel(this); document.getElementById('jobFilterSearch').click();">
-            <input type="checkbox" name="type[]" value="{{ type.id }}" {% for typeLink in linkQuery['type'] %}{{ typeLink == type.id ? 'checked' : null }}{% endfor %}>
-            <span>{{ type.type_name }} - <small>{{ type.jobs|length }}</small><i class="fas fa-times-circle"></i></span>
-        </label>
     {% endfor %}
 </aside>
