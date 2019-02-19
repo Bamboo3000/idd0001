@@ -60,7 +60,7 @@ class Cronjob extends ComponentBase
     */
     protected function readFile() 
     {
-        $xml = simplexml_load_file('http://external.srch20.com/searchit/xml/jobs') or die("Error: Cannot create object");
+        $xml = simplexml_load_file('https://jobs.searchsoftware.nl/searchit.xml') or die("Error: Cannot create object");
         $vacancies = $xml->vacancy;
 
         foreach($vacancies as $job) {

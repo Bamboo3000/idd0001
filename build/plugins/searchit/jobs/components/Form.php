@@ -181,7 +181,7 @@ class Form extends ComponentBase
                 if(Input::get('form_type') == 'application') {
                     
                     $this->sendMail($form_data, 'Bedankt voor solliciteren bij Iddink Group', 'application_nl');
-                    Flash::success('app');
+                    Flash::success('Bedankt voor jouw sollicitatie. Jouw cv is succesvol geupload!');
 
                 }
 
